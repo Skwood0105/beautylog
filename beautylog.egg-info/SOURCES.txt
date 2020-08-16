@@ -1,7 +1,7 @@
 README.md
 setup.py
 beautylog/__init__.py
-beautylog/beautylog.py
+beautylog/functions.py
 beautylog.egg-info/PKG-INFO
 beautylog.egg-info/SOURCES.txt
 beautylog.egg-info/dependency_links.txt
