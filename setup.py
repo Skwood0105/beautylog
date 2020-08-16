@@ -11,7 +11,7 @@ setuptools.setup(
     description="Let your code generate logs automatically",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="",
+    url="https://github.com/Aglargil/beautylog",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
