@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="beautylog",
-    version="0.0.2",
+    version="0.0.5",
     author="AglarGil",
     author_email="aglargilwang@gmail.com",
     description="Let your code generate logs automatically",
