@@ -36,7 +36,7 @@ def beStdOut():
 # 让输出变为定制输出
 def beCusOut(custom_out):
     sys.stdout = custom_out
-
+# 定义标准类
 class __BeautyLogOut__:
     def __init__(self, func_name):
         self._buff = ''
