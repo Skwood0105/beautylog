@@ -3,6 +3,7 @@ from functools import wraps
 import os
 import sys
 import traceback
+from types import MethodType,FunctionType
 STDOUT = sys.stdout
 #python setup.py sdist bdist_wheel 
 #python -m twine upload dist/*
@@ -64,8 +65,12 @@ def logDecoration(func):
             beStdOut() # 设为标准输出
             if caller_name != '<module>': # 若函数中调用了子函数，应打印调用者信息
                 writeLog("<%s> is calling [%s]" % (caller_name, func.__name__), file_dir)
-            writeLog("<%s> is called" % func.__name__, file_dir)
-
+            # writeLog("<%s> is called" % func.__name__, file_dir)
+            if isinstance(func,FunctionType):
+                writeLog("<%s> is called as a function" % func.__name__, file_dir)
+            else:
+                writeLog("<%s> is called as a method" % func.__name__, file_dir)
+                
             beCusOut( __BeautyLogOut__(func.__name__)) # 设为定制输出
             func_return = str(func(*args, **kwargs))
 
@@ -134,4 +139,18 @@ if __name__ == "__main__":
             raise Exception("ERERERER")
         except Exception as err:
             print('except')
+    class test:
+        @logDecoration
+        def m(self):
+            print('main1')
+            my()
+            print("main2")
+            try:
+                print('try')
+                raise Exception("ERERERER")
+            except Exception as err:
+                print('except')
+    Test=test()
+    Test.m()
     main()
+   
